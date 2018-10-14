@@ -1,9 +1,10 @@
-var bodyParser = require("body-parser"),
-methodOverride = require("method-override"),
-expressSanitizer = require("express-sanitizer"),
-mongoose       = require("mongoose"),
-express        = require("express"),
-app            = express();
+var bodyParser      = require("body-parser"),
+  methodOverride    = require("method-override"),
+  expressSanitizer  = require("express-sanitizer"),
+  mongoose          = require("mongoose"),
+  express           = require("express"),
+  app               = express(),
+  PORT              = process.env.PORT || 3000;
 // APP CONFIG
 mongoose.connect("mongodb://localhost/restful_blog_app");
 app.set("view engine", "ejs");
@@ -92,6 +93,6 @@ app.delete("/blogs/:id", function(req, res) {
     })
 });
 
-app.listen(process.env.PORT, process.env.IP, function() {
+app.listen(PORT, process.env.IP, function() {
    console.log("Server Running.");
 });
